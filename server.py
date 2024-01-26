@@ -24,6 +24,11 @@ while True:
         # Send a welcome message to the client
         connection.sendall(b'Welcome to the server!')
 
+        # Receive and print data from the client
+        data = connection.recv(1024)
+        print('Received:', data.decode())
+
     finally:
         # Clean up the connection
         connection.close()
+
