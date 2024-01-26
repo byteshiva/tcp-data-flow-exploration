@@ -30,7 +30,7 @@ To explore the TCP data flow, follow these steps:
 4. In a new terminal, open Wireshark to capture traffic on localhost:
    ```bash
    nix develop
-   pkexe wireshark
+   pkexec tcpdump -U -s0 -i lo -w - | wireshark -k -i -
    ```
    In Wireshark, select the appropriate network interface (e.g., `lo` for localhost) and start capturing.
 
