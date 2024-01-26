@@ -9,9 +9,15 @@ client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_address = ('localhost', 12345)
 client_socket.connect(server_address)
 
-# Receive and print the welcome message from the server
-data = client_socket.recv(1024)
-print('Received:', data.decode())
+try:
+    # Receive and print the welcome message from the server
+    data = client_socket.recv(1024)
+    print('Received:', data.decode())
 
-# Clean up the connection
-client_socket.close()
+    # Send a message to the server
+    message = 'Hello, server!'
+    client_socket.sendall(message.encode())
+
+finally:
+    # Clean up the connection
+    client_socket.close()
